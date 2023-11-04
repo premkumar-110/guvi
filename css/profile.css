@@ -104,23 +104,19 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0.3rem 1rem;
+  padding: .5rem .5rem;
   display: flex;
   color: white;
-}
-header p {
-  font-size: 1.5rem;
-  display: flex;
-  align-items: end;
-  justify-content: end;
+  font-size: 1.3rem;
 }
 header button {
-  padding: 0.3rem 0.5rem;
+  padding: 0.3rem 0.3rem;
   background-color: #d5429b;
   border: white 1px solid;
   color: white;
   border-radius: 0.3rem;
   transition: all 0.3s;
+  font-size: 1rem;
 }
 
 header button:hover {

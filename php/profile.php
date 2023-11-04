@@ -11,10 +11,10 @@ define('DB_DATABASE', 'brivdntiki1qnbunl6lc');
 require_once '../vendor/autoload.php';
 use Predis\Client;
 $redis = new Client([
-    'scheme' => 'tcp', // Use TCP protocol
-    'host' => 'redis-14093.c253.us-central1-1.gce.cloud.redislabs.com', // Redis server hostname
-    'port' => 14093, // Redis server port
-    'password' => 'VpUKiqTS3UXx3nf42NVFeeqOwW09Lngq', // Your Redis password
+    'scheme' => 'tcp', 
+    'host' => 'redis-14093.c253.us-central1-1.gce.cloud.redislabs.com', 
+    'port' => 14093, 
+    'password' => 'VpUKiqTS3UXx3nf42NVFeeqOwW09Lngq',
 ]);
 $response = array();
 $databaseConnection = new MongoDB\Client;
@@ -120,26 +120,19 @@ if (isset($_POST['updateData'])) {
         $response['status'] = 400;
         $response['message'] = "Please login to continue";
     } else {
-        // Connect to the MySQL database
         $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-
-        // Prepare and execute a query to retrieve the password for the user
         $stmt = $conn->prepare("SELECT pass FROM data WHERE email = ?");
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $stmt->bind_result($storedPassword);
         $stmt->fetch();
         $stmt->close();
-
-        // Verify if the old password matches the stored password (without hashing)
         if ($oldPassword === $storedPassword) {
             // Check if the new passwords match
             if ($newPassword1 === $newPassword2) {
-                // Prepare and execute a query to update the password (without hashing)
                 $stmt = $conn->prepare("UPDATE data SET pass = ? WHERE email = ?");
                 $stmt->bind_param("ss", $newPassword1, $email);
 

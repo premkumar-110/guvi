@@ -12,17 +12,17 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: "Bricolage Grotesque", sans-serif;
-  background-image: url('../assets/background.svg');
+  background-image: url("../assets/background.svg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.spin{
+.spin {
   display: flex;
   gap: 1rem;
   width: fit-content;
 }
-.notification{
+.notification {
   position: absolute;
   top: 0;
   display: none;
@@ -66,8 +66,8 @@ body {
 .profileContainer {
   width: 70%;
   height: 90%;
-  position: fixed;
-  transform: translate(-50%,-50%);
+  position: absolute;
+  transform: translate(-50%, -50%);
   top: 48%;
   left: 50%;
 }
@@ -120,10 +120,10 @@ header button {
   border: white 1px solid;
   color: white;
   border-radius: 0.3rem;
-  transition: all .30s;
+  transition: all 0.3s;
 }
 
-header button:hover{
+header button:hover {
   background-color: white;
   color: #d5429b;
 }
@@ -135,48 +135,69 @@ header button:hover{
   transition: all 0.1s ease-in;
 }
 /* Custom alertify error style */
-.image-upload{
+.image-upload {
   width: 70%;
   height: 70%;
-margin: 0 auto;
-overflow: hidden;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .image-upload input {
-      position: relative;
-      width: 100%;
-      opacity: 0;
-  }
+  position: relative;
+  width: 100%;
+  opacity: 0;
+}
 .upload-field {
-display: block;
-background: #F4FAFE;
-padding: 12px;
-border-radius: 11px;
+  display: block;
+  background: #f4fafe;
+  padding: 12px;
+  border-radius: 11px;
 }
 
 .upload-field .file-thumbnail {
-cursor: pointer;
-border: 1px dashed gray;
-border-radius: 11px;
-text-align: center;
-padding: 20px;
+  cursor: pointer;
+  border: 1px dashed gray;
+  border-radius: 11px;
+  text-align: center;
+  padding: 20px;
 }
 
 .upload-field .file-thumbnail img {
-width: 15rem;
+  width: 15rem;
 }
 
 .upload-field .file-thumbnail h3 {
-font-size: 12px;
-color: #000000;
-font-weight: 600;
-margin-bottom: 4px;
+  font-size: 12px;
+  color: #000000;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .upload-field .file-thumbnail p {
-font-size: 12px;
-margin-bottom: 0;
+  font-size: 12px;
+  margin-bottom: 0;
 }
 
+.details_container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  color: #d5429b;
+}
+.details_container svg {
+  cursor: pointer;
+  color: #d5429b;
+}
+
+
+
+input:disabled {
+  background: white; 
+}
+
+textarea:disabled {
+  background: white; 
+}
 
 @media only screen and (max-width: 1200px) {
   body {
@@ -189,7 +210,7 @@ margin-bottom: 0;
     height: 130vh;
     font-family: "Bricolage Grotesque", sans-serif;
   }
-  
+
   .shadow {
     border: #d5429b 1px solid;
     border-radius: 2rem;
@@ -197,13 +218,11 @@ margin-bottom: 0;
     width: 95%;
     padding: 1rem;
   }
-  
+
   .profile-tab-nav {
     min-width: 250px;
   }
-  
-  
-  
+
   .img-circle img {
     height: 150px;
     width: 150px;
@@ -216,10 +235,10 @@ margin-bottom: 0;
   }
   .container {
     width: 100%;
-  
+
     height: 100%;
   }
-  header{
+  header {
     position: absolute;
     width: 100%;
     top: 0;
@@ -238,5 +257,4 @@ margin-bottom: 0;
     color: white;
     border-radius: 0.3rem;
   }
-  
 }

@@ -20,16 +20,24 @@ if ($db->connect_error) {
 }
 
 if (isset($_POST['save_reg'])) {
+    
     $email = $_POST['email'];
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
+    
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $response['status'] = 422;
+        $response['message'] = 'A valid email is required';
+        echo json_encode($response);
+        exit;
+    }
     if ($password != $cpassword) {
         $response['status'] = 422;
         $response['message'] = 'Password does not match';
         echo json_encode($response);
         exit;
     }
-    if (empty($email)  || empty($password)) {
+    if (empty($email) || empty($password)) {
         $response['status'] = 422;
         $response['message'] = 'All fields are mandatory';
         echo json_encode($response);
@@ -64,9 +72,9 @@ if (isset($_POST['save_reg'])) {
             'fname' => "first name",
             'lname' => "lastname",
             'age' => "00",
-            'dob'=> '00-00-0000',
+            'dob' => '00-00-0000',
             'contact' => 'phone number and address',
-            'phone'=>"1234567890"
+            'phone' => "1234567890"
         ];
         $userCollection->insertOne($userData);
 

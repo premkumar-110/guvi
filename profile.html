@@ -4,56 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="./css/profile.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-    <!-- jQuery -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.24/sweetalert2.all.js"></script>
-    
   </head>
   <body>
-    <!-- <div class="profile-container">
-            <div class="profile-image">
-                <img src="uploads/<?php echo $image; ?>" alt="User Image">
-            </div>
-            <div class="profile-details">
-                <h2><?php echo $email; ?></h2>
-                <p><strong>Phone:</strong> <?php echo $phone; ?></p>
-                <p><strong>Date of Birth:</strong> <?php echo $dob; ?></p>
-                <p><strong>Contact:</strong> <?php echo $contact; ?></p>
-                <?php
-                    // Calculate age from date of birth
-                    $dobDateTime = new DateTime($dob);
-                    $currentDateTime = new DateTime();
-                    $ageInterval = $currentDateTime->diff($dobDateTime);
-                    $age = $ageInterval->y;
-                ?>
-                <p><strong>Age:</strong> <?php echo $age; ?> years</p>
-            </div>
-        </div> -->
-    <header >
+    <header>
       <p>Profile Page</p>
       <button id="logoutButton">LOGOUT</button>
     </header>
-    <section class="py-5 my-5 profileContainer" >
+    <section class="py-5 my-5 profileContainer">
       <div class="container">
-        <div class="bg-white shadow rounded-lg d-block d-sm-flex ">
+        <div class="bg-white shadow rounded-lg d-block d-sm-flex">
           <div class="profile-tab-nav border-right">
             <div class="p-4">
               <div class="img-circle text-center mb-3">
                 <img src="./assets/login_vector.svg" alt="User Image" />
               </div>
-              <h4 class="text-center" id="fullname">
-                
-              </h4>
+              <h4 class="text-center" id="fullname"></h4>
             </div>
             <div
-              class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              class="nav flex-column nav-pills"
+              id="v-pills-tab"
+              role="tablist"
+              aria-orientation="vertical"
+            >
               <a
                 class="nav-link active"
                 id="account-tab"
@@ -66,18 +55,6 @@
                 <i class="fa fa-home text-center mr-1"></i>
                 Account
               </a>
-              <!-- <a
-                class="nav-link"
-                id="profilePicture-tab"
-                data-toggle="pill"
-                href="#profilePicture"
-                role="tab"
-                aria-controls="dp"
-                aria-selected="false"
-              >
-                <i class="fa fa-key text-center mr-1"></i>
-                Change Profile
-              </a> -->
               <a
                 class="nav-link"
                 id="password-tab"
@@ -100,7 +77,41 @@
               role="tabpanel"
               aria-labelledby="account-tab"
             >
-              <h3 class="mb-4">Profile</h3>
+              <div class="mb-3 details_container">
+                <h3>Profile</h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-pencil-square edit-svg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-x-octagon cancel-svg"
+                  viewBox="0 0 16 16"
+                  style="display: none"
+                >
+                  <path
+                    d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"
+                  />
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                  />
+                </svg>
+              </div>
               <form id="editForm">
                 <div class="row">
                   <div class="col-md-6">
@@ -111,6 +122,7 @@
                         class="form-control"
                         value=""
                         id="fname"
+                        autocomplete="off"
                       />
                     </div>
                   </div>
@@ -122,6 +134,7 @@
                         class="form-control"
                         value=""
                         id="lname"
+                        autocomplete="off"
                       />
                     </div>
                   </div>
@@ -129,7 +142,7 @@
                     <div class="form-group">
                       <label>Email</label>
                       <input
-                      id="email"
+                        id="email"
                         type="text"
                         class="form-control"
                         value=""
@@ -141,15 +154,15 @@
                     <div class="form-group">
                       <label>Mobile Number</label>
                       <input
-                      id="phone"
+                        id="phone"
                         type="text"
                         class="form-control"
                         value=""
-                        
+                        autocomplete="off"
                       />
                     </div>
                   </div>
-                  
+
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Date of Birth</label>
@@ -164,76 +177,74 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Age</label>
-                      <!-- <?php
-                                        // Calculate age from date of birth
-                                        $dobDateTime = new DateTime($dob);
-                                        $currentDateTime = new DateTime();
-                                        $ageInterval = $currentDateTime->diff($dobDateTime);
-                      $age = $ageInterval->y; ?> -->
                       <input
                         id="age"
-                        type="text"
+                        type="number"
                         class="form-control"
                         value=""
-                        
+                        autocomplete="off"
                       />
                     </div>
                   </div>
-                <!-- <div class="col-md-12">
-                    <div class="form-group">
-                      <label for="username" class="form-label"> Image </label>
-                      <input
-                        name="image"
-                        class="form-control"
-                        type="file"
-                        id="formFile"
-                      />
-                    </div>
-                  </div> -->
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Contact</label>
-                      <textarea class="form-control" rows="2" id="contact"></textarea>
+                      <textarea
+                        class="form-control"
+                        rows="2"
+                        id="contact"
+                      ></textarea>
                     </div>
                   </div>
                 </div>
-                <div>
-                  <button type="submit" class="btn btnColor" id="editForm">
+                <div class="other-div">
+                  <button type="submit" class="btn btnColor" id="editForm1">
                     Update
                   </button>
                 </div>
               </form>
             </div>
-            <!-- <div
-              class="tab-pane fade"
-              id="profilePicture"
-              role="tabpanel"
-              aria-labelledby="profilePicture-tab"
-            >
-            
-            <div class="image-upload">
-                <input type="file" name="" id="logo" onchange="fileValue(this)" >
-                <label for="logo" class="upload-field" id="file-label">
-                    <div class="file-thumbnail">
-                        <img id="image-preview" src="https://www.btklsby.go.id/images/placeholder/basic.png" alt="">
-                        <h3 id="filename">
-                            Drag and Drop
-                        </h3>
-                        <p >Supports JPG, PNG, SVG</p>
-                    </div>
-                </label>
-            </div>
-
-
-
-            </div> -->
             <div
               class="tab-pane fade"
               id="password"
               role="tabpanel"
               aria-labelledby="password-tab"
             >
-              <h3 class="mb-4">Password</h3>
+              <div class="mb-3 details_container">
+                <h3>Password</h3>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-pencil-square edit-svg1"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                  />
+                </svg>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-x-octagon cancel-svg1"
+                  viewBox="0 0 16 16"
+                  style="display: none"
+                >
+                  <path
+                    d="M4.54.146A.5.5 0 0 1 4.893 0h6.214a.5.5 0 0 1 .353.146l4.394 4.394a.5.5 0 0 1 .146.353v6.214a.5.5 0 0 1-.146.353l-4.394 4.394a.5.5 0 0 1-.353.146H4.893a.5.5 0 0 1-.353-.146L.146 11.46A.5.5 0 0 1 0 11.107V4.893a.5.5 0 0 1 .146-.353L4.54.146zM5.1 1 1 5.1v5.8L5.1 15h5.8l4.1-4.1V5.1L10.9 1H5.1z"
+                  />
+                  <path
+                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                  />
+                </svg>
+              </div>
               <form id="editPassForm">
                 <div class="row">
                   <div class="col-md-12">
@@ -256,6 +267,7 @@
                         placeholder="Enter your Password"
                         aria-label="Password"
                         aria-describedby="addon-wrapping"
+                        autocomplete="off"
                       />
                       <span
                         class="input-group-text"
@@ -305,6 +317,7 @@
                         placeholder="Enter your new Password"
                         aria-label="Password"
                         aria-describedby="addon-wrapping"
+                        autocomplete="off"
                       />
                       <span
                         class="input-group-text"
@@ -354,53 +367,35 @@
                         placeholder="Confirm your new Password"
                         aria-label="Password"
                         aria-describedby="addon-wrapping"
+                        autocomplete="off"
                       />
                     </div>
                   </div>
                 </div>
                 <br />
 
-                <div>
-                  <button type="submit" class="btn btnColor" id="editPassForm">Update</button>
+                <div class="other-div1">
+                  <button type="submit" class="btn btnColor" id="editPassForm1">
+                    Update
+                  </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
-
       <div id="errorMessage" class="alert alert-warning d-none"></div>
-
-
-      <div class="notification" id="successAlert">
-      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
-        </symbol>
-      </svg>
-      
-      <div id="successAlert" class="alert alert-success d-flex align-items-center successIcon" role="alert" style="display: none;">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-        <div>
-          An example success alert with an icon
-        </div>
-      </div>
-    </div>
-      
-      
     </section>
 
-    <!-- <div class="spin isvisible">
-      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+      <div class="toast position-fixed top-0 end-0 p-1" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+          <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
       </div>
-      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-      </div>
-      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-      </div>
-    </div> -->
-    
-      
-    </div>
+
     <script src="./js/profile.js"></script>
   </body>
 </html>

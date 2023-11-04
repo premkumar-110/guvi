@@ -40,10 +40,7 @@ if (isset($_POST['logout'])) {
     $session = $_POST['sessionId'];
 
     if (!empty($session)) {
-        // Construct the Redis key
         $redisKey = 'user.' . $session;
-
-        // Delete the specific key associated with the session ID
         $deletedKeys = $redis->del($redisKey);
 
         if ($deletedKeys > 0) {
@@ -107,6 +104,7 @@ if (isset($_POST['updateData'])) {
     }
   
     echo json_encode($response);
+    exit;
   }
   
   if (isset($_POST['passUpdateData'])) {
@@ -167,6 +165,7 @@ if (isset($_POST['updateData'])) {
     }
 
     echo json_encode($response);
+    exit;
 }
 
 

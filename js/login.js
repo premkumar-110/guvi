@@ -66,6 +66,51 @@ $(document).ready(function () {
           newProfilevisibility_off.show();
        }
     });
+
+    var session = localStorage.getItem("sessionId")
+    if(session!=undefined){
+      console.log(session)
+      var formData1 = new FormData();
+      formData1.append("session_login", true);
+      formData1.append("sessionId", session);
+      console.log(formData1);
+
+   
+        $.ajax({
+           type: "POST",
+           url: "./php/login.php",
+           data: formData1,
+           processData: false,
+           contentType: false,
+           success: function (response) {
+            console.log(response); 
+   
+              if (response.status == 200) {
+               swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: 'Loggin In...',
+                  timer: 2000, // Specify the time in milliseconds (e.g., 2000ms = 2 seconds)
+                  showConfirmButton: false, // Hide the "OK" button
+                  }).then(function() {
+                     
+                      window.location = "profile.html";
+                  });
+              } else if (response.status == 422) {
+                 $("#errorMessage").text(response.message);
+                 $("#errorMessage").removeClass("d-none");
+              } else {
+                 $("#errorMessage").text(response.message);
+                 $("#errorMessage").removeClass("d-none");
+              }
+           },
+           error: function (error) {
+            console.log(error)
+              $("#errorMessage").text("An error occurred. Please try again later.");
+              $("#errorMessage").removeClass("d-none");
+           },
+        });
+    }
     $("#log").submit(function (e) {
         e.preventDefault();
    

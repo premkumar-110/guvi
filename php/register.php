@@ -3,27 +3,18 @@
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', 'guvi');
+define('DB_SERVER', 'brivdntiki1qnbunl6lc-mysql.services.clever-cloud.com');
+define('DB_USERNAME', 'u4rytbbwvqjrogsf');
+define('DB_PASSWORD', '3cIFU6mrtXC7mtaMILbB');
+define('DB_DATABASE', 'brivdntiki1qnbunl6lc');
 
-// Include the MongoDB PHP driver
 require_once '../vendor/autoload.php';
 
-// Connect to the MongoDB server
 $databaseConnection = new MongoDB\Client;
-
-// Connect to a specific MongoDB database
 $myDatabase = $databaseConnection->guvi;
-
-// Connect to a specific MongoDB collection
 $userCollection = $myDatabase->data;
-
-// Attempt to connect to the MySQL database
 $db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-// Check the connection
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
@@ -32,10 +23,6 @@ if (isset($_POST['save_reg'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
-    // $fname = $_POST['fname'];
-    // $lname = $_POST['lname'];
-
-    // Validate all fields
     if ($password != $cpassword) {
         $response['status'] = 422;
         $response['message'] = 'Password does not match';
@@ -74,12 +61,12 @@ if (isset($_POST['save_reg'])) {
         // Now, store the same data in MongoDB
         $userData = [
             'email' => $email,
-            'password' => $password,
             'fname' => "first name",
             'lname' => "lastname",
             'age' => "00",
             'dob'=> '00-00-0000',
-            'contact' => 'phone number and address'
+            'contact' => 'phone number and address',
+            'phone'=>"1234567890"
         ];
         $userCollection->insertOne($userData);
 
@@ -95,3 +82,5 @@ if (isset($_POST['save_reg'])) {
 
 // Close the database connections
 $db->close();
+
+?>

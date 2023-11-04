@@ -12,6 +12,20 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: "Bricolage Grotesque", sans-serif;
+  background-image: url('../assets/background.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.spin{
+  display: flex;
+  gap: 1rem;
+  width: fit-content;
+}
+.notification{
+  position: absolute;
+  top: 0;
+  display: none;
 }
 
 .shadow {
@@ -50,8 +64,12 @@ body {
   border: 5px solid #fff;
 }
 .profileContainer {
-  width: 90%;
+  width: 70%;
   height: 90%;
+  position: fixed;
+  transform: translate(-50%,-50%);
+  top: 48%;
+  left: 50%;
 }
 .container {
   width: 100%;
@@ -86,7 +104,7 @@ header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0.3rem;
+  padding: 0.3rem 1rem;
   display: flex;
   color: white;
 }
@@ -102,6 +120,12 @@ header button {
   border: white 1px solid;
   color: white;
   border-radius: 0.3rem;
+  transition: all .30s;
+}
+
+header button:hover{
+  background-color: white;
+  color: #d5429b;
 }
 
 #errorMessage {
@@ -196,7 +220,7 @@ margin-bottom: 0;
     height: 100%;
   }
   header{
-    position: sticky;
+    position: absolute;
     width: 100%;
     top: 0;
   }

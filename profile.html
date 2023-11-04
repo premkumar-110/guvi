@@ -36,21 +36,20 @@
                 <p><strong>Age:</strong> <?php echo $age; ?> years</p>
             </div>
         </div> -->
-    <header>
+    <header >
       <p>Profile Page</p>
       <button id="logoutButton">LOGOUT</button>
     </header>
-    <section class="py-5 my-5 profileContainer">
+    <section class="py-5 my-5 profileContainer" >
       <div class="container">
-        <div class="bg-white shadow rounded-lg d-block d-sm-flex">
+        <div class="bg-white shadow rounded-lg d-block d-sm-flex ">
           <div class="profile-tab-nav border-right">
             <div class="p-4">
               <div class="img-circle text-center mb-3">
                 <img src="./assets/login_vector.svg" alt="User Image" />
               </div>
-              <h4 class="text-center">
-                <?php echo $fname; ?>
-                <?php echo $lname; ?>
+              <h4 class="text-center" id="fullname">
+                
               </h4>
             </div>
             <div
@@ -110,7 +109,7 @@
                       <input
                         type="text"
                         class="form-control"
-                        value="<?php echo $fname?>"
+                        value=""
                         id="fname"
                       />
                     </div>
@@ -121,7 +120,7 @@
                       <input
                         type="text"
                         class="form-control"
-                        value="<?php echo $lname?>"
+                        value=""
                         id="lname"
                       />
                     </div>
@@ -130,31 +129,34 @@
                     <div class="form-group">
                       <label>Email</label>
                       <input
+                      id="email"
                         type="text"
                         class="form-control"
-                        value="<?php echo $email?>"
+                        value=""
                         disabled
                       />
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label>Phone number</label>
+                      <label>Mobile Number</label>
                       <input
+                      id="phone"
                         type="text"
                         class="form-control"
-                        value="<?php echo $phone?>"
-                        id="phone"
+                        value=""
+                        
                       />
                     </div>
                   </div>
+                  
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Date of Birth</label>
                       <input
-                        type="text"
+                        type="date"
                         class="form-control"
-                        value="<?php echo $dob?>"
+                        value=""
                         id="dob"
                       />
                     </div>
@@ -169,10 +171,11 @@
                                         $ageInterval = $currentDateTime->diff($dobDateTime);
                       $age = $ageInterval->y; ?> -->
                       <input
+                        id="age"
                         type="text"
                         class="form-control"
-                        value="<?php echo $age?>"
-                        disabled
+                        value=""
+                        
                       />
                     </div>
                   </div>
@@ -190,7 +193,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Contact</label>
-                      <textarea class="form-control" rows="2" id="contact"><?php echo $contact?></textarea>
+                      <textarea class="form-control" rows="2" id="contact"></textarea>
                     </div>
                   </div>
                 </div>
@@ -235,7 +238,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <label for="password" class="form-label"
-                      >OLD PASSWORD</label
+                      >Old password</label
                     >
                     <div class="input-group">
                       <span class="input-group-text">
@@ -284,7 +287,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <label for="password" class="form-label"
-                      >NEW PASSWORD</label
+                      >New Password</label
                     >
                     <div class="input-group">
                       <span class="input-group-text">
@@ -333,7 +336,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <label for="password" class="form-label"
-                      >CONFIRM NEW PASSWORD</label
+                      >Confirm new Password</label
                     >
                     <div class="input-group">
                       <span class="input-group-text">
@@ -358,16 +361,46 @@
                 <br />
 
                 <div>
-                  <button type="submit" class="btn btnColor">Update</button>
+                  <button type="submit" class="btn btnColor" id="editPassForm">Update</button>
                 </div>
               </form>
             </div>
           </div>
         </div>
       </div>
+
       <div id="errorMessage" class="alert alert-warning d-none"></div>
+
+
+      <div class="notification" id="successAlert">
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+        </symbol>
+      </svg>
+      
+      <div id="successAlert" class="alert alert-success d-flex align-items-center successIcon" role="alert" style="display: none;">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <div>
+          An example success alert with an icon
+        </div>
+      </div>
+    </div>
+      
+      
     </section>
 
+    <!-- <div class="spin isvisible">
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+      </div>
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+      </div>
+      <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+      </div>
+    </div> -->
+    
+      
+    </div>
     <script src="./js/profile.js"></script>
   </body>
 </html>

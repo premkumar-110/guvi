@@ -4,10 +4,10 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type");
 
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_DATABASE', 'guvi');
+define('DB_SERVER', 'brivdntiki1qnbunl6lc-mysql.services.clever-cloud.com');
+define('DB_USERNAME', 'u4rytbbwvqjrogsf');
+define('DB_PASSWORD', '3cIFU6mrtXC7mtaMILbB');
+define('DB_DATABASE', 'brivdntiki1qnbunl6lc');
 
 require_once '../vendor/autoload.php'; // Include Composer's autoloader
 use Predis\Client;
@@ -28,16 +28,46 @@ $db = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
 // Create a Predis client instance
 $redis = new Client([
-    'scheme' => 'tcp',
-    'host' => 'localhost',
-    'port' => 6379,
+    'scheme' => 'tcp', // Use TCP protocol
+    'host' => 'redis-14093.c253.us-central1-1.gce.cloud.redislabs.com', // Redis server hostname
+    'port' => 14093, // Redis server port
+    'password' => 'VpUKiqTS3UXx3nf42NVFeeqOwW09Lngq', // Your Redis password
 ]);
+
 try {
     $redis->ping();
     $response['message']="Connected to Redis server successfully";
 } catch (Exception $e) {
     error_log("Failed to connect to Redis: " . $e->getMessage());
 }
+
+if (isset($_POST['session_login'])) {
+    $sessionId = $_POST['sessionId'];
+    
+    // Check if the session ID exists in the Redis database
+    $sessionExists = $redis->get('user.' . $sessionId);
+
+    $response = array(); // Initialize the response array
+
+    if ($sessionExists) {
+        // Session ID exists in Redis
+        $response['status'] = 200;
+        $response['message'] = "Session exists";
+    } else {
+        // Session ID does not exist in Redis
+        $response['status'] = 404;
+        $response['message'] = "Session not found";
+    }
+
+    // Return the response as JSON
+    header('Content-Type: application/json');
+    echo json_encode($response);
+    exit; // Terminate the script
+}
+
+
+
+
 
 if (isset($_POST['save_login'])) {
     $email = $_POST['email'];

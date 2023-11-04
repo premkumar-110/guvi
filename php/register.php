@@ -69,11 +69,11 @@ if (isset($_POST['save_reg'])) {
         // Now, store the same data in MongoDB
         $userData = [
             'email' => $email,
-            'fname' => "first name",
-            'lname' => "lastname",
+            'fname' => "First Name",
+            'lname' => "Last Name",
             'age' => "00",
             'dob' => '00-00-0000',
-            'contact' => 'phone number and address',
+            'contact' => 'Address',
             'phone' => "1234567890"
         ];
         $userCollection->insertOne($userData);

@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz@10..48&family=Roboto&display=swap");
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Bricolage Grotesque", sans-serif;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+nav{
+    border: 1px solid lightgray;
+}
+.formContainer{
+    display: flex;
+    gap: 1rem;
+}
+.headDetails{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-weight: 700;
+}
+.headDetails img{
+    width: 2rem;
+    height: 2rem;
+}
+.imgContainer{
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    top: 4rem;
+}
